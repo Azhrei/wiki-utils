@@ -1,0 +1,587 @@
+# https://wiki.rptools.info/index.php/macro.args missing template
+# https://wiki.rptools.info/index.php/macro.return missing template
+# https://wiki.rptools.info/index.php/Glossary missing template
+# https://wiki.rptools.info/index.php/token.name missing template
+# https://wiki.rptools.info/index.php/token.halo missing template
+# https://wiki.rptools.info/index.php/token.label missing template
+# https://wiki.rptools.info/index.php/roll.count missing template
+# https://wiki.rptools.info/index.php/token.visible missing template
+# https://wiki.rptools.info/index.php/roll.result missing template
+# https://wiki.rptools.info/index.php/bar.name missing template
+# https://wiki.rptools.info/index.php/String missing template
+# https://wiki.rptools.info/index.php/token.init missing template
+# https://wiki.rptools.info/index.php/token.initHold missing template
+# https://wiki.rptools.info/index.php/state.name missing template
+# https://wiki.rptools.info/index.php/Token missing template
+# https://wiki.rptools.info/index.php/h redirect out of scope
+# https://wiki.rptools.info/index.php/hide redirect out of scope
+# https://wiki.rptools.info/index.php/hidden redirect out of scope
+# https://wiki.rptools.info/index.php/token redirect out of scope
+# https://wiki.rptools.info/index.php/Notepad++ missing template
+# https://wiki.rptools.info/index.php/onCampaignLoad missing template
+# https://wiki.rptools.info/index.php/!!unknown-macro!! missing template
+# https://wiki.rptools.info/index.php/MTBasics redirect out of scope
+# https://wiki.rptools.info/index.php/Number missing template
+# https://wiki.rptools.info/index.php/Editor missing template
+# https://wiki.rptools.info/index.php/Preferences redirect out of scope
+# https://wiki.rptools.info/index.php/dialog redirect out of scope
+# https://wiki.rptools.info/index.php/Wiki redirect out of scope
+# https://wiki.rptools.info/index.php/Uninstalling missing template
+# https://wiki.rptools.info/index.php/State redirect out of scope
+# https://wiki.rptools.info/index.php/Aura missing template
+# https://wiki.rptools.info/index.php/Frameworks missing template
+# https://wiki.rptools.info/index.php/Size missing template
+# https://wiki.rptools.info/index.php/tokens.denyMove missing template
+# https://wiki.rptools.info/index.php/tokens.moveCount missing template
+# https://wiki.rptools.info/index.php/onTokenMove missing template
+# https://wiki.rptools.info/index.php/onMultipleTokensMove missing template
+# https://wiki.rptools.info/index.php/onChangeSelection missing template
+# https://wiki.rptools.info/index.php/onMouseOverEvent missing template
+# https://wiki.rptools.info/index.php/Phergus missing template
+# https://wiki.rptools.info/index.php/TokenTool missing template
+# https://wiki.rptools.info/index.php/exposeAllOwnedAreas missing template
+# https://wiki.rptools.info/index.php/macro.catchAbort missing template
+# https://wiki.rptools.info/index.php/macro.catchAssert missing template
+# https://wiki.rptools.info/index.php/init.current missing template
+# https://wiki.rptools.info/index.php/init.round missing template
+# https://wiki.rptools.info/index.php/AI redirect out of scope
+# https://wiki.rptools.info/index.php/Bars redirect out of scope
+# https://wiki.rptools.info/index.php/Tables redirect out of scope
+# https://wiki.rptools.info/index.php/frame5 redirect out of scope
+# https://wiki.rptools.info/index.php/MBL redirect out of scope
+# https://wiki.rptools.info/index.php/MapTool missing template
+# https://wiki.rptools.info/index.php/overlay redirect out of scope
+# https://wiki.rptools.info/index.php/dialog5 redirect out of scope
+# https://wiki.rptools.info/index.php/init.denyChange missing template
+# https://wiki.rptools.info/index.php/onInitiativeChange redirect out of scope
+# https://wiki.rptools.info/index.php/onInitiativeChangeRequest redirect out of scope
+REST.delete
+REST.get
+REST.patch
+REST.post
+REST.put
+abort
+abs
+absolutevalue
+add
+addAllNPCsToInitiative
+addAllPCsToInitiative
+addAllToInitiative
+addTableEntry
+addToInitiative
+and
+arg
+argCount
+assert
+average
+avg
+band
+base64.decode
+base64.encode
+bitwiseand
+bitwisenot
+bitwiseor
+bitwisexor
+bnot
+bor
+bringDrawingToFront
+bringToFront
+broadcast
+bxor
+canSeeToken
+capitalize
+ceil
+ceiling
+clearLights
+clearRolls
+clearTable
+closeDialog
+closeFrame
+closeOverlay
+concat
+copyMap
+copyTable
+copyToken
+countStrProp
+countsuccess
+createMacro
+createTable
+currentToken
+d
+decode
+defineAudioSource
+defineFunction
+deleteStrProp
+deleteTable
+deleteTableEntry
+deselectTokens
+dice
+divide
+drawMBL
+drawVBL
+drop
+dropHighest
+editStream
+encode
+endsWith
+eq
+eqs
+equals
+equalsStrict
+eraseMBL
+eraseVBL
+eval
+evalMacro
+execFunction
+execLink
+execMacro
+explode
+explodingSuccess
+exportData
+exposeAllOwnedArea
+exposeFOW
+exposeFogAtWaypoints
+exposePCAreaOnly
+exposePCOnlyArea
+f
+findDrawings
+findToken
+floor
+formatStrProp
+fudge
+ge
+getAllMapDisplayNames
+getAllMapNames
+getAllPlayerNames
+getAllPropertyNames
+getAlwaysVisible
+getAssetProperties
+getBar
+getBarImage
+getCurrentInitiative
+getCurrentMapName
+getDefinedFunctions
+getDialogProperties
+getDistance
+getDistanceToX
+getDistanceToXY
+getDrawOrder
+getDrawingEraser
+getDrawingInfo
+getDrawingLayer
+getDrawingOpacity
+getDrawingProperties
+getEnvironmentVariable
+getExposedTokenNames
+getExposedTokens
+getFillColor
+getFindCount
+getFrameProperties
+getGMName
+getGMNotes
+getGroup
+getGroupCount
+getGroupEnd
+getGroupStart
+getHalo
+getImage
+getImpersonated
+getImpersonatedName
+getInfo
+getInitiative
+getInitiativeHold
+getInitiativeList
+getInitiativeRound
+getInitiativeToken
+getLabel
+getLastPath
+getLayer
+getLibProperty
+getLibPropertyNames
+getLights
+getLineCap
+getMBL
+getMacroButtonIndex
+getMacroCommand
+getMacroContext
+getMacroGroup
+getMacroIndexes
+getMacroLocation
+getMacroName
+getMacroProps
+getMacros
+getMapDisplayName
+getMapVisible
+getMatchingLibProperties
+getMatchingProperties
+getMaxLoopIterations
+getMaxRecursionDepth
+getMoveCount
+getNPC
+getNPCNames
+getNPCs
+getName
+getNewRolls
+getNotes
+getOverlayProperties
+getOwned
+getOwnedNames
+getOwnerOnlyVisible
+getOwners
+getPC
+getPCNames
+getPCs
+getPenColor
+getPenWidth
+getPlayerName
+getProperty
+getPropertyDefault
+getPropertyNames
+getPropertyNamesRaw
+getPropertyType
+getRawProperty
+getRecursionDepth
+getRolled
+getSelected
+getSelectedNames
+getSightType
+getSize
+getSoundProperties
+getSpeech
+getSpeechNames
+getState
+getStateImage
+getStrProp
+getStreamProperties
+getTableAccess
+getTableEntry
+getTableImage
+getTableNames
+getTablePickOnce
+getTablePicksLeft
+getTableRoll
+getTableVisible
+getTerrainModifier
+getTextLabelStatus
+getTokenDrawOrder
+getTokenFacing
+getTokenGMName
+getTokenHalo
+getTokenHandout
+getTokenHeight
+getTokenImage
+getTokenLabel
+getTokenLayoutProps
+getTokenMap
+getTokenNames
+getTokenNativeHeight
+getTokenNativeWidth
+getTokenOpacity
+getTokenPortrait
+getTokenRotation
+getTokenShape
+getTokenStates
+getTokenVBL
+getTokenWidth
+getTokenX
+getTokenY
+getTokens
+getVBL
+getViewArea
+getViewCenter
+getVisible
+getVisibleMapDisplayNames
+getVisibleMapNames
+getVisibleTokenNames
+getVisibleTokens
+getWithState
+getWithStateNames
+getZoom
+goto
+gt
+hasImpersonated
+hasLightSource
+hasMacro
+hasProperty
+hasSight
+hero
+herobody
+herolab.XPath
+herolab.getImage
+herolab.getInfo
+herolab.getMasterName
+herolab.getStatBlock
+herolab.hasChanged
+herolab.isMinion
+herolab.refresh
+herostun
+hex
+hideTextLabels
+hypot
+hypotenuse
+if
+impersonate
+indexKeyStrProp
+indexOf
+indexValueStrProp
+initiativeSize
+input
+isBarVisible
+isDialogVisible
+isExternalMacroAccessAllowed
+isFrameVisible
+isFunctionDefined
+isGM
+isGm
+isNPC
+isNumber
+isOverlayRegistered
+isOwnedByAll
+isOwner
+isPC
+isPropertyEmpty
+isSnapToGrid
+isTrusted
+isVisible
+json.append
+json.contains
+json.count
+json.difference
+json.equals
+json.evaluate
+json.fields
+json.fromList
+json.fromStrProp
+json.get
+json.indent
+json.indexOf
+json.intersection
+json.isEmpty
+json.isSubset
+json.length
+json.merge
+json.objrolls
+json.path.add
+json.path.delete
+json.path.put
+json.path.read
+json.path.set
+json.remove
+json.removeAll
+json.removeFirst
+json.reverse
+json.rolls
+json.set
+json.shuffle
+json.sort
+json.subset
+json.toList
+json.toStrProp
+json.toVars
+json.type
+json.union
+json.unique
+keep
+keepLowest
+lastIndexOf
+le
+length
+listAppend
+listContains
+listCount
+listDelete
+listFind
+listFormat
+listGet
+listInsert
+listReplace
+listSort
+ln
+log
+log.debug
+log.error
+log.fatal
+log.getLoggers
+log.info
+log.setLevel
+log.trace
+log.warn
+log10
+lower
+lt
+macroLink
+macroLinkText
+markdownToHTML
+matches
+math
+math.arrayMax
+math.arrayMean
+math.arrayMedian
+math.arrayMin
+math.arrayProduct
+math.arraySum
+math.e
+math.listMax
+math.listMean
+math.listMedian
+math.listMin
+math.listProduct
+math.listSum
+math.log
+max
+mean
+median
+min
+moveToken
+moveTokenFrom
+moveTokenFromMap
+moveTokenToMap
+movedOverDrawing
+movedOverPoints
+movedOverToken
+multiply
+ne
+nextInitiative
+not
+number
+oldFunction
+openTest
+or
+playClip
+playStream
+pow
+power
+prevInitiative
+refreshDrawing
+removeAllFromInitiative
+removeAllNPCsFromInitiative
+removeAllPCsFromInitiative
+removeFromInitiative
+removeMacro
+removeToken
+removeTokenFacing
+replace
+reroll
+rerollOnce
+resetFrame
+resetProperty
+resetSize
+resetTablePicks
+restoreFoW
+return
+roll
+rollAddWithLower
+rollAddWithUpper
+rollSubWithLower
+rollSubWithUpper
+rollWithLower
+rollWithUpper
+round
+runJsFunction
+selectTokens
+sendDrawingToBack
+sendToBack
+set
+setAllStates
+setAlwaysVisible
+setBar
+setBarVisible
+setCurrentInitiative
+setCurrentMap
+setDrawingEraser
+setDrawingLayer
+setDrawingOpacity
+setDrawingProperties
+setFillColor
+setGMName
+setGMNotes
+setHalo
+setHasSight
+setInitiative
+setInitiativeHold
+setInitiativeRound
+setLabel
+setLayer
+setLibProperty
+setLight
+setLineCap
+setMacroCommand
+setMacroProps
+setMapDisplayName
+setMapName
+setMapVisible
+setMaxLoopIterations
+setMaxRecursionDepth
+setNPC
+setName
+setNotes
+setOwnedByAll
+setOwner
+setOwnerOnlyVisible
+setPC
+setPenColor
+setPenWidth
+setProperty
+setPropertyType
+setSightType
+setSize
+setSpeech
+setState
+setStrProp
+setTableAccess
+setTableEntry
+setTableImage
+setTablePickOnce
+setTableRoll
+setTableVisible
+setTerrainModifier
+setTokenDrawOrder
+setTokenFacing
+setTokenGMName
+setTokenHandout
+setTokenHeight
+setTokenImage
+setTokenLabel
+setTokenLayoutProps
+setTokenOpacity
+setTokenPortrait
+setTokenShape
+setTokenSnapToGrid
+setTokenVBL
+setTokenWidth
+setViewArea
+setVisible
+setZoom
+showTextLabels
+sortInitiative
+sqr
+sqrt
+square
+squareroot
+sr4
+sr4e
+startsWith
+stopSound
+stopStream
+strEquals
+strPropFromVars
+strfind
+strformat
+string
+stringToList
+substring
+subtract
+success
+sum
+switchToken
+table
+tableImage
+tbl
+tblImage
+toggleFoW
+transferVBL
+trim
+u
+ubiquity
+upper
+varsFromStrProp
