@@ -15,7 +15,7 @@ use HTML::TreeBuilder 5 -weak;
 
 # Reads all of the HTML files under 'processed/' and makes a list that
 # contains the filename (without directory prefix) and the description.
-# # This is just for quick eyeballing to ensure reasonable text was extracted.
+# This is just for quick eyeballing to ensure reasonable text was extracted.
 
 chdir "processed"
     or die "Can't change directory to 'processed'?!\n$!";
@@ -53,7 +53,7 @@ sub processFile {
             ('class', 'template_version')
         );
 	# Now grab the following element (the one to the "right").
-        $e = $e->right();
+        $e = $e->right() if $e;
     }
     # Could also look for the first <h2> and take the following <p>...?
     die "Can't find either description or version?!" unless $e;
@@ -69,6 +69,8 @@ sub processFile {
     #   <img src="xxx" alt="Look. Here... Really!">
     # But doing this correctly means parsing out HTML elements, looking
     # for the end-of-sentence, then adding HTML elements back in.
+    # For example, using the equivalent of .text() to find where the sentence
+    # ends, but then somehow finding that location back in the original HTML.
     $t =~ s/[.]\s+[[:upper:]<].*$/./;
     $t =~ s/\s+/ /g;
     return $t;

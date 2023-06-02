@@ -5,8 +5,17 @@
 # two steps documented in the README file before doing that.)
 
 .idea/
-lmwcs.com/
+README.html
+wiki-updates.html
+
 wiki.rptools.info/
 processed/
 processed.txt
+wiki-has.txt
 wiki-dump.xml
+
+# This is a generated file and generally shouldn't be in the repo.
+# However, generating this produces a huge network load on the MediaWiki
+# server as *every* MTscript function page has to be downloaded.
+# So... Does it belong in here? Yes. But I'm trying to be gentle to others.
+#i18n.properties

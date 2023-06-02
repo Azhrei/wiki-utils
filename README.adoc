@@ -1,74 +1,110 @@
 = Converting MediaWiki Dump to MapTool Properties Help File
 
-These scripts and auxiliary files are used to extract the documentation
-from Craig's `wiki.rptools.info` website and store them here under the
-`processed/` directory.
+These scripts and auxiliary files are used to extract the documentation from the `wiki.rptools.info` website and store them here under the `processed/` directory.
 
-The MediaWiki software adds some boilerplate that is removed in these
-files – we only keep the contents of `&lt;div id=&quot;mw-content-text&quot;&gt;` but
-even that has pieces removed, like the table of contents and all
-HTML comments.
+The MediaWiki software adds some boilerplate that is removed in these files – we only keep the contents of `&lt;div id=&quot;mw-content-text&quot;&gt;` but even that has pieces removed, like the table of contents and all HTML comments.
 
-The end result is a Java properties file that we can manually copy to
-`../../src/main/resources/net/rptools/maptool/language/macro_descriptions/`
-under the name `i18n.properties`.
+The end result is a Java properties file that we can manually copy to `../../src/main/resources/net/rptools/maptool/language/macro_descriptions/` under the name `i18n.properties`.
+
+Hopefully, at some point these scripts can be modified to handle other languages!
 
 == Conversion Process
 
+I recommend that you execute these scripts as shown and compare the output to the `tests/` directory.
+
+It's possible that changes to the wiki dump file format or the content of the pages themseelves could cause the scripts to break.
+The easiest way to detect that is to run the script(s) and capture the output, then compare that output to the previous version.
+
+In my latest tests, this detected a change to the Python `lxml` module that cause the script(s) to produce incorrect output but without any errors.
+If I hadn't done that, I could've spent a lot of time trying to figure out what went wrong with the wiki data.
+
+By producing intermediate files, a human can look at the content -- and even modify it -- before proceeding to the next step.
+
+== Overall operation
+
+. Extract a list of pages that appear to be macro functions and save the list in the file `wiki-has.txt`
+
+. Read that list and retrieve the specified pages, storing them under `wiki.rptools.info/`.
++
+In the past, the list needed to be tweaked manually as some pages were not appearing for various reasons.
+The pages have since been updated so that valid pages are included and invalid pages are not.
+
+. Convert the wiki page HTML into small snippets of HTML with just the page content.
++
+The HTML for the wiki pages can be messy, but it includes all of the formatting that we want (bold, italics, etc) and some things we don't want (like the table of contents and the "stub" template content).
+So we run the HTML through an XSLT that extracts just the `div#mw-content-text` text and throws away everything else.
++
+The results are stored under the `processed/` directory under the name of the page.
+
+. Create a one-line description for each macro function.
++
+The content under the `processed/` directory contains everything needed for the `i18n.properties` file, but the macro editor also wants a one-line description for each function.
+So we read those files, extract the first sentence, and write the result to `processed.txt`.
++
+This is a great place to eyeball the content and see if anything looks out of place.
+For example, if MediaWiki changed the structure of the generated page, you might see the wrong description lines show up here.
+But if everything looks good, continue to the next step.
++
+(Note that some parts of this should probably change.
+Right now, the macro editor doesn't support links in the help doc in all cases.
+But if it does in the future, we'll want the links in the `href` attribute to point to the corresponding wiki page.
+Until then, we should probably remove all attributes for anchor tags; that allows them to continue to display as links, but there's no chance of them being activated.)
+
+. Combine the one-line description and the full description into the `i18n.properties` file.
++
+The lines are read from `processed.txt` and combined with the full description from the file under `processed/` to create the properties file.
+
+All done!
+
 === `1-wiki-getfnnames.py &gt; wiki-has.txt`
 
-This Python3 script reads Craig's MediaWiki dump file and makes a
-list of all pages that appear to describe macro functions. This
-list is stored in `wiki-has.txt` and is used in the next step.
+This Python3 script reads the MediaWiki dump file and makes a list of all pages that appear to describe macro functions.
+
+This list is stored in `wiki-has.txt` and is used in the next step.
 
 === `2-get-wiki-pages.sh`
 
-This script reads the `wiki-has.txt` file to determine which pages
-to retrieve. It grabs them using `wget` and puts them under the
-`wiki.rptools.info` directory. The actual pages are under `index.php/`
-and auxiliary files are under other subdirectories (like JavaScripts,
-CSS, and images).
+This script reads the `wiki-has.txt` file to determine which pages to retrieve.
+
+It grabs them using `wget` and puts them under the `wiki.rptools.info` directory.
+The actual pages are under `index.php/` and auxiliary files are under other subdirectories (like JavaScripts, CSS, and images).
+
+The auxiliary files will be ignored.
 
 === `3-extract-mw-content.sh`
 
-This script extracts the proper `&lt;div&gt;` from the pages under
-`wiki.rptools.info/index.php/`, checking to ensure the HTML is valid,
-and then reformatting and re-indenting the document when
-generating the output. That output is put under `processed/` for
-use in the next step.
+This script extracts the proper `&lt;div&gt;` from the pages under `wiki.rptools.info/index.php/`
 
-=== `4-generate-macro-list.sh`
+It checks to ensure the HTML is valid, then reformats and reindents the document when generating the output.
+
+That output is put under `processed/` for use in the next step.
+
+=== `4-generate-macro-list.sh &gt; processed.txt`
 
 // This Perl script is currently broken on my Mac, so I need to
 // rewrite it in Python.  That reduces the reliance on another
 // language as well, so probably for the better.
 
-The output of this script should be redirected to `processed.txt`
-as it becomes input for the next step.
+=== `4-generate-macro-list.pl &gt; processed.txt`
 
-This script reads the files under `processed/` and creates an
-"index" that lists each filename and the description of the
-macro that the file documents. It looks for `&lt;div
-class=&quot;template_description&quot;&gt;` to isolate the description text.
-This becomes input for the script in the next step.
+This script reads the files under `processed/` and creates an index that lists each filename and the one-line summary of the macro that the file documents.
 
-=== `5-create-properties.sh`
+It looks for `&lt;div class=&quot;template_description&quot;&gt;` to isolate the description text.
+If not found, it falls back to `&lt;div class=&quot;template_description&quot;&gt;`.
 
-The output of this script should be redirected to `i18n.properties`;
-it is the final output from this process and should be copied to
-`../../src/main/resources/net/rptools/maptool/language/macro_descriptions/`
-after completion.
+The output of this script becomes input for the next step.
 
-This script reads the index from the previous step, `processed.txt`,
-and uses it to generate the `.description` records in the properties
-file.
+=== `5-create-properties.sh &gt; i18n.properties`
 
-It also reads the HTML snippets stored under the
-`processed/` directory to create the `.summary` records.
+This script reads the index from the previous step, `processed.txt` and uses it to generate the `.description` records in the properties file.
 
-This script isn't perfect, as it doesn't always detect the `.description`
-field properly. Future updates to the wiki pages may correct that.  (It
-currently tries to grab the first "sentence", meaning a string of text
-that ends with a period, question mark, or exclamation mark, followed by
-at least one space.  Unfortunately, it can be confused by nested HTML
-elements within that first sentence.)
+It also reads the HTML snippets stored under the `processed/` directory to create the `.summary` records.
+
+The output of this script should be redirected to `i18n.properties`; it is the final output from this process and should be copied to `../../src/main/resources/net/rptools/maptool/language/macro_descriptions/` after completion.
+
+These scripts aren't perfect, as they doesn't always detect the `.description` field properly.
+Future updates to the wiki pages may correct that.
+
+(It currently tries to grab the first "sentence", meaning a string of text that ends with a period, question mark, or exclamation mark, followed by
+at least one space.
+Unfortunately, it can be confused by nested HTML elements within that first sentence.)
